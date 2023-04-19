@@ -21,8 +21,23 @@ describe("home page", () => {
 
   context("Courses section", () => {
     it("Course: Testing Your First Next.js Application", () => {
+      cy.getByData("course-0").contains(
+        "Testing Your First Next.js Application"
+      )
       cy.getByData("course-0").find("a").eq(3).click()
       cy.location("pathname").should("eq", "/testing-your-first-application")
+    })
+
+    it("Course: Testing Foundations", () => {
+      cy.getByData("course-1").contains("Testing Foundations")
+      cy.getByData("course-1").find("a").eq(3).click()
+      cy.location("pathname").should("eq", "/testing-foundations")
+    })
+
+    it("Course: Cypress Fundamentals", () => {
+      cy.getByData("course-2").contains("Cypress Fundamentals")
+      cy.getByData("course-2").find("a").eq(3).click()
+      cy.location("pathname").should("eq", "/cypress-fundamentals")
     })
   })
 })
